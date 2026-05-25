@@ -1,6 +1,18 @@
 node_modules/
 .next/
 out/
-.env
+
+# environment
 .env.local
 .env*.local
+app.yaml
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db

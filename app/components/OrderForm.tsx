@@ -79,26 +79,8 @@ export default function OrderForm({
     }
   }
 
-  const emailOrder = async () => {
-    setSending(true)
-    try {
-      await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
-        to_email: 'cafehappybara@outlook.com',
-        customer_name: name,
-        customer_phone: phone,
-        customer_email: email || 'not provided',
-        pickup_time: time,
-        order_items: orderItems.map(i => `${i.quantity}x ${i.name}`),
-        order_total: `$${total.toFixed(2)}`,
-        notes: notes || '',
-      })
-      showToast('Order sent to cafe!')
-    } catch (err: unknown) {
-      const error = err as { text?: string; message?: string }
-      alert('Email error: ' + (error.text || error.message || JSON.stringify(err)))
-    } finally {
-      setSending(false)
-    }
+  const emailOrder = () => {
+    window.location.href = '/'
   }
 
   const resetOrder = () => {
@@ -257,9 +239,7 @@ export default function OrderForm({
             >
               {sending ? 'Sending…' : 'Send Order to Cafe'}
             </button>
-            <button className="submit-btn" style={{ marginTop: '0.75rem' }} onClick={resetOrder}>
-              🐾 Place New Order
-            </button>
+
           </div>
         )}
       </div>

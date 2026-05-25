@@ -1,0 +1,10 @@
+[package]
+name = "welldesignedsystem/happybara-cafe"
+version = "0.1.0"
+description = "Happybara Café website"
+
+[dependencies]
+"sharrattj/static-web-server" = "1"
+
+[fs]
+public = "out"
