@@ -9,6 +9,10 @@ npm run build    # static export -> out/
 npm run lint     # next lint (only verification available; no tests)
 ```
 
+## Setup files
+
+Both `.env.local` and `app.yaml` are gitignored and must be created from the templates in `README.md`. The templates use `SAMPLE_`-prefixed placeholder values — strip the `SAMPLE_` prefix when writing the actual files.
+
 ## Build artifact
 
 `next.config.js` sets `output: 'export'` — the build produces a static site in `out/`. The `postbuild` script copies `out/index.html` to the repo root (required by Wasmer deployment). The root `index.html` is a **generated artifact** — do not edit directly; edit `app/page.tsx`.

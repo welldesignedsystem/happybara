@@ -8,9 +8,9 @@ Stores EmailJS credentials for the order form.
 
 **Format:**
 ```
-NEXT_PUBLIC_EMAILJS_PUBLIC_KEY=your_public_key
-NEXT_PUBLIC_EMAILJS_SERVICE_ID=your_service_id
-NEXT_PUBLIC_EMAILJS_TEMPLATE_ID=your_template_id
+NEXT_PUBLIC_EMAILJS_PUBLIC_KEY: SAMPLE_aZ1Rv7UQvBIC4nV2k
+NEXT_PUBLIC_EMAILJS_SERVICE_ID: SAMPLE_service_bp5ocbi
+NEXT_PUBLIC_EMAILJS_TEMPLATE_ID: SAMPLE_template_ejjpe3b
 ```
 
 **Steps to create:**
