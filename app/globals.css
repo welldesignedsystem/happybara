@@ -133,6 +133,15 @@ nav {
 footer { background: var(--dark); color: rgba(253,246,236,0.55); text-align: center; padding: 2rem; font-size: 0.8rem; }
 footer span { color: var(--caramel); }
 
+.reviews-section { padding: 4rem 0; max-width: 1100px; margin: 0 auto; overflow: hidden; }
+.marquee-track { overflow: hidden; mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent); -webkit-mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent); }
+.marquee-content { display: flex; gap: 1.25rem; animation: marquee 70s linear infinite; width: max-content; }
+.review-card { background: white; border: 1px solid var(--soft-tan); border-radius: 14px; padding: 1.25rem 1.5rem; min-width: 260px; box-shadow: 0 4px 20px rgba(107,63,31,0.06); flex-shrink: 0; }
+.review-stars { color: #F4B942; font-size: 1rem; letter-spacing: 3px; margin-bottom: 6px; }
+.review-text { font-size: 0.85rem; color: var(--dark); line-height: 1.5; font-style: italic; }
+.review-name { font-size: 0.75rem; color: var(--caramel); font-weight: 700; display: block; margin-top: 6px; }
+@keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
 @media (max-width: 600px) {
   .form-grid { grid-template-columns: 1fr; }
   .hours-grid { grid-template-columns: 1fr; }

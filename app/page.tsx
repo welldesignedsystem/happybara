@@ -9,6 +9,7 @@ import AboutStrip from './components/AboutStrip'
 import OrderForm from './components/OrderForm'
 import QRCodeSection from './components/QRCodeSection'
 import Hours from './components/Hours'
+import ReviewsMarquee from './components/ReviewsMarquee'
 import Footer from './components/Footer'
 
 interface OrderItem {
@@ -67,6 +68,7 @@ export default function Home() {
         onClearOrder={clearOrder}
       />
       <QRCodeSection />
+      <ReviewsMarquee />
       <Hours />
       <Footer />
     </>
