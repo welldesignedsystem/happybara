@@ -44,6 +44,14 @@ const menuData: Record<string, MenuItem[]> = {
     { icon: '🥣', name: 'Yogurt Bundle', desc: 'Creamy yogurt with toppings', price: '$3', tags: [] },
     { icon: '🥗', name: 'Healthy Starter', desc: 'Fresh greens and veggies to start your meal right', price: '$7', tags: [{ label: 'Veg', className: 'veg' }] },
   ],
+  dessert: [
+    { icon: '🥛', name: 'Milk Shake', desc: 'Creamy milkshake in chocolate, strawberry or vanilla', price: '$3', tags: [] },
+    { icon: '🍦', name: 'Ice Cream', desc: 'Scoop of premium ice cream', price: '$5', tags: [] },
+    { icon: '🧊', name: 'Fruity Freeze', desc: 'Refreshing fruity frozen treat', price: '$5.50', tags: [] },
+    { icon: '🍮', name: 'Fried Ice Cream', desc: 'Crispy coated fried ice cream with toppings', price: '$5', tags: [] },
+    { icon: '🧊', name: 'Slushy Crush', desc: 'Ice cold slushy crush in your choice of flavour', price: '$4.20', tags: [] },
+    { icon: '🍓', name: 'A Healthy Surprise', desc: 'A delightful and healthy treat to finish your meal', price: '$6', tags: [] },
+  ],
   lunch: [
     { icon: '🥗', name: 'Salad', desc: 'Fresh garden salad with your choice of dressing', price: '$10', tags: [{ label: 'Veg', className: 'veg' }] },
     { icon: '🥗', name: 'Salad Combo', desc: 'Hearty salad combo with your choice of protein', price: '$14', tags: [] },
@@ -85,7 +93,7 @@ const menuData: Record<string, MenuItem[]> = {
   ],
 }
 
-const tabs = ['drinks', 'breakie', 'lunch', 'dinner', 'kids', 'sides']
+const tabs = ['drinks', 'breakie', 'lunch', 'dinner', 'kids', 'sides', 'dessert']
 
 export default function MenuSection({ onAddToOrder }: { onAddToOrder: (name: string, price: number) => void }) {
   const [activeTab, setActiveTab] = useState('drinks')
@@ -107,7 +115,7 @@ export default function MenuSection({ onAddToOrder }: { onAddToOrder: (name: str
             className={`tab-btn${activeTab === tab ? ' active' : ''}`}
             onClick={() => setActiveTab(tab)}
           >
-            {tab === 'drinks' ? <><span style={{fontSize:'1.5em'}}>♥</span> Drinks <span style={{fontSize:'1.5em'}}>♥</span></> : tab === 'breakie' ? <><span style={{fontSize:'1.5em'}}>♥</span> Breakie <span style={{fontSize:'1.5em'}}>♥</span></> : tab === 'lunch' ? <><span style={{fontSize:'1.5em'}}>♥</span> Lunch <span style={{fontSize:'1.5em'}}>♥</span></> : tab === 'dinner' ? <><span style={{fontSize:'1.5em'}}>♥</span> Dinner <span style={{fontSize:'1.5em'}}>♥</span></> : tab === 'kids' ? <><span style={{fontSize:'1.5em'}}>♥</span> Kids <span style={{fontSize:'1.5em'}}>♥</span></> : <><span style={{fontSize:'1.5em'}}>♥</span> Sides <span style={{fontSize:'1.5em'}}>♥</span></>}
+            {tab === 'drinks' ? <><span style={{fontSize:'1.5em'}}>♥</span> Drinks <span style={{fontSize:'1.5em'}}>♥</span></> : tab === 'breakie' ? <><span style={{fontSize:'1.5em'}}>♥</span> Breakie <span style={{fontSize:'1.5em'}}>♥</span></> : tab === 'lunch' ? <><span style={{fontSize:'1.5em'}}>♥</span> Lunch <span style={{fontSize:'1.5em'}}>♥</span></> : tab === 'dinner' ? <><span style={{fontSize:'1.5em'}}>♥</span> Dinner <span style={{fontSize:'1.5em'}}>♥</span></> : tab === 'kids' ? <><span style={{fontSize:'1.5em'}}>♥</span> Kids <span style={{fontSize:'1.5em'}}>♥</span></> : tab === 'sides' ? <><span style={{fontSize:'1.5em'}}>♥</span> Sides <span style={{fontSize:'1.5em'}}>♥</span></> : <><span style={{fontSize:'1.5em'}}>♥</span> Dessert <span style={{fontSize:'1.5em'}}>♥</span></>}
           </button>
         ))}
       </div>
