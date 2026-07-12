@@ -75,10 +75,10 @@ nav {
 .menu-tag.veg { background: #EEF4EC; color: #7A9E6F; border-color: #C0D8B8; }
 .menu-tag.new { background: #FDE8E8; color: #C0504A; border-color: #F0C0BE; }
 
-.about-strip { background: var(--warm-brown); padding: 5rem 2rem; text-align: center; position: relative; overflow: hidden; }
+.about-strip { background: var(--warm-brown); padding: 5rem 2rem; text-align: center; }
 .about-strip h2 { font-family: 'Playfair Display', serif; font-size: clamp(1.6rem, 3.5vw, 2.5rem); color: var(--cream); margin-bottom: 1rem; }
 .about-strip p { color: rgba(253,246,236,0.72); max-width: 520px; margin: 0 auto 2rem; font-size: 0.95rem; line-height: 1.8; }
-.capybara-peek { position: absolute; bottom: -10px; right: 30px; font-size: 4rem; transform: rotate(-10deg); opacity: 0.9; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2)); }
+.capybara-peek { width: 200px; height: auto; border-radius: 12px; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2)); }
 .about-stats { display: flex; justify-content: center; gap: 3rem; flex-wrap: wrap; }
 .stat-item { text-align: center; }
 .stat-num { font-family: 'Playfair Display', serif; font-size: 2.2rem; color: var(--caramel); display: block; line-height: 1; }
@@ -125,7 +125,7 @@ nav {
 .qr-url { font-size: 0.75rem; color: var(--text-muted); letter-spacing: 0.05em; }
 
 .hours-section { padding: 5rem 2rem; max-width: 700px; margin: 0 auto; text-align: center; }
-.hours-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1rem; margin-top: 2rem; }
+.hours-grid { display: flex; justify-content: center; align-items: center; gap: 2rem; margin-top: 2rem; }
 .hours-card { background: white; border: 1px solid var(--soft-tan); border-radius: 12px; padding: 1.25rem 1rem; }
 .hours-day { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em; font-weight: 700; color: var(--text-muted); margin-bottom: 6px; }
 .hours-time { font-family: 'Playfair Display', serif; font-size: 0.95rem; color: var(--warm-brown); }
