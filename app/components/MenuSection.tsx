@@ -33,7 +33,16 @@ const menuData: Record<string, MenuItem[]> = {
     { icon: '🥗', name: 'Veg Small Salad', desc: 'Light small salad with fresh vegetables', price: '$6', tags: [{ label: 'Veg', className: 'veg' }] },
     { icon: '🥚', name: 'Egg Friends', desc: 'Eggs prepared your way with friendly sides', price: '$11', tags: [] },
     { icon: '👨‍🍳', name: "Chef's Special", desc: "Ask your server for today's breakfast creation", price: '$17', tags: [{ label: 'Seasonal', className: '' }] },
-    { icon: '🍗', name: 'Chicken Wings', desc: 'Crispy chicken wings with dipping sauce', price: '$13', tags: [{ label: 'Popular', className: 'popular' }] },
+    { icon: '🐔', name: 'Chicken Wings', desc: 'Crispy chicken wings with dipping sauce', price: '$13', tags: [{ label: 'Popular', className: 'popular' }] },
+    { icon: '🥣', name: 'Yogurt Bundle', desc: 'Creamy yogurt with granola, honey and fresh fruit', price: '$9', tags: [] },
+  ],
+  sides: [
+    { icon: '🥐', name: 'Pastry Bundle Hot Choc', desc: 'Assorted pastries with a hot chocolate', price: '$5', tags: [] },
+    { icon: '🍭', name: 'Lollie Pop Jolly Pop', desc: 'Colourful lollipop treat', price: '$2', tags: [] },
+    { icon: '🍟', name: 'Side Fries', desc: 'Crispy golden fries', price: '$5', tags: [] },
+    { icon: '☕', name: 'Pastry Bundle Coffee', desc: 'Assorted pastries with a coffee', price: '$5', tags: [] },
+    { icon: '🥣', name: 'Yogurt Bundle', desc: 'Creamy yogurt with toppings', price: '$3', tags: [] },
+    { icon: '🥗', name: 'Healthy Starter', desc: 'Fresh greens and veggies to start your meal right', price: '$7', tags: [{ label: 'Veg', className: 'veg' }] },
   ],
   lunch: [
     { icon: '🥗', name: 'Salad', desc: 'Fresh garden salad with your choice of dressing', price: '$10', tags: [{ label: 'Veg', className: 'veg' }] },
@@ -47,10 +56,12 @@ const menuData: Record<string, MenuItem[]> = {
     { icon: '🍛', name: 'Beef Curry', desc: 'Aromatic beef curry simmered in spiced gravy', price: '$18', tags: [] },
     { icon: '🐟', name: 'Seafood', desc: 'Mixed seafood platter of the day', price: '$23', tags: [] },
     { icon: '🦞', name: 'Fried Lobster', desc: 'Crispy fried lobster served with dipping sauce', price: '$27', tags: [{ label: 'New', className: 'new' }] },
+    { icon: '🍲', name: 'Cozy Meal', desc: 'A warm and comforting meal to make you feel right at home', price: '$16', tags: [] },
+    { icon: '🍔', name: 'Grown Up Happy Meal', desc: 'A grown-up version of the classic — premium main, sides & drink', price: '$18', tags: [] },
   ],
   dinner: [
-    { icon: '🥗', name: 'Salad', desc: 'Fresh garden salad with your choice of dressing', price: '$11', tags: [{ label: 'Veg', className: 'veg' }] },
-    { icon: '🥗', name: 'Salad Combo', desc: 'Hearty salad combo with your choice of protein', price: '$15', tags: [] },
+    { icon: '🥗', name: 'Large Salad', desc: 'Fresh garden salad with your choice of dressing', price: '$11', tags: [{ label: 'Veg', className: 'veg' }] },
+    { icon: '🥗', name: 'Large Salad Combo', desc: 'Hearty salad combo with your choice of protein', price: '$15', tags: [] },
     { icon: '🍲', name: 'Stew', desc: 'Slow-cooked hearty stew served with bread', price: '$17', tags: [{ label: 'Popular', className: 'popular' }] },
     { icon: '🍛', name: 'Beef Curry', desc: 'Aromatic beef curry simmered in spiced gravy', price: '$19', tags: [{ label: 'Popular', className: 'popular' }] },
     { icon: '🦀', name: 'Crab Curry', desc: 'Fresh crab cooked in rich coconut curry sauce', price: '$23', tags: [] },
@@ -70,10 +81,11 @@ const menuData: Record<string, MenuItem[]> = {
     { icon: '🍟', name: 'Chicken Nuggets', desc: 'Golden chicken nuggets with dipping sauce', price: '$8', tags: [{ label: 'Popular', className: 'popular' }] },
     { icon: '🍔', name: 'Happy Meal with Chips', desc: 'Kids meal with a main, chips & drink', price: '$11', tags: [{ label: 'Popular', className: 'popular' }] },
     { icon: '🍔', name: 'Happy Meal with Apple Slices', desc: 'Kids meal with a main, apple slices & drink', price: '$11', tags: [{ label: 'New', className: 'new' }] },
+    { icon: '🍕', name: 'Pizza Happy Meal', desc: 'Cheesy pizza with a side and drink', price: '$12', tags: [{ label: 'New', className: 'new' }] },
   ],
 }
 
-const tabs = ['drinks', 'breakie', 'lunch', 'dinner', 'kids']
+const tabs = ['drinks', 'breakie', 'lunch', 'dinner', 'kids', 'sides']
 
 export default function MenuSection({ onAddToOrder }: { onAddToOrder: (name: string, price: number) => void }) {
   const [activeTab, setActiveTab] = useState('drinks')
@@ -95,7 +107,7 @@ export default function MenuSection({ onAddToOrder }: { onAddToOrder: (name: str
             className={`tab-btn${activeTab === tab ? ' active' : ''}`}
             onClick={() => setActiveTab(tab)}
           >
-            {tab === 'drinks' ? '☕ Drinks' : tab === 'breakie' ? '🥚 Breakie' : tab === 'lunch' ? '🥗 Lunch' : tab === 'dinner' ? '🍜 Dinner' : '🧒 Kids'}
+            {tab === 'drinks' ? <><span style={{fontSize:'1.5em'}}>♥</span> Drinks <span style={{fontSize:'1.5em'}}>♥</span></> : tab === 'breakie' ? <><span style={{fontSize:'1.5em'}}>♥</span> Breakie <span style={{fontSize:'1.5em'}}>♥</span></> : tab === 'lunch' ? <><span style={{fontSize:'1.5em'}}>♥</span> Lunch <span style={{fontSize:'1.5em'}}>♥</span></> : tab === 'dinner' ? <><span style={{fontSize:'1.5em'}}>♥</span> Dinner <span style={{fontSize:'1.5em'}}>♥</span></> : tab === 'kids' ? <><span style={{fontSize:'1.5em'}}>♥</span> Kids <span style={{fontSize:'1.5em'}}>♥</span></> : <><span style={{fontSize:'1.5em'}}>♥</span> Sides <span style={{fontSize:'1.5em'}}>♥</span></>}
           </button>
         ))}
       </div>
