@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useCallback, useRef, useEffect } from 'react'
+import { useState, useCallback, useRef } from 'react'
 import emailjs from '@emailjs/browser'
 
 emailjs.init(process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!)
@@ -13,7 +13,6 @@ interface OrderItem {
 
 interface OrderFormProps {
   orderItems: OrderItem[]
-  onAddToOrder: (name: string, price: number) => void
   onRemoveFromOrder: (name: string) => void
   onChangeQty: (name: string, delta: number) => void
   onClearOrder: () => void
@@ -24,7 +23,6 @@ const EMAILJS_TEMPLATE_ID = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!
 
 export default function OrderForm({
   orderItems,
-  onAddToOrder,
   onRemoveFromOrder,
   onChangeQty,
   onClearOrder,
@@ -98,21 +96,7 @@ export default function OrderForm({
     weekday: 'long', year: 'numeric', month: 'long', day: 'numeric',
   })
 
-  useEffect(() => {
-    const handleClick = (e: MouseEvent) => {
-      const card = (e.target as HTMLElement).closest('.menu-card')
-      if (!card) return
-      const nameEl = card.querySelector('.menu-card-name')
-      const priceEl = card.querySelector('.menu-card-price')
-      if (!nameEl || !priceEl) return
-      const name = nameEl.textContent?.trim() || ''
-      const price = parseFloat((priceEl.textContent?.trim() || '$0').replace('$', ''))
-      onAddToOrder(name, price)
-      showToast(`${name} added`)
-    }
-    document.addEventListener('click', handleClick)
-    return () => document.removeEventListener('click', handleClick)
-  }, [onAddToOrder, showToast])
+
 
   return (
     <section className="order-section" id="order">

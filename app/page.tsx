@@ -62,7 +62,6 @@ export default function Home() {
       <AboutStrip />
       <OrderForm
         orderItems={orderItems}
-        onAddToOrder={addToOrder}
         onRemoveFromOrder={removeFromOrder}
         onChangeQty={changeQty}
         onClearOrder={clearOrder}

@@ -31,7 +31,6 @@ const menuData: Record<string, MenuItem[]> = {
     { icon: '🥗', name: 'Small Salad', desc: 'Light and fresh small salad', price: '$7', tags: [{ label: 'Veg', className: 'veg' }] },
     { icon: '🥦', name: 'Veg Breakie Combo', desc: 'Vegetarian breakfast combo with eggs, toast & veggies', price: '$14', tags: [{ label: 'Veg', className: 'veg' }] },
     { icon: '🥗', name: 'Veg Small Salad', desc: 'Light small salad with fresh vegetables', price: '$6', tags: [{ label: 'Veg', className: 'veg' }] },
-    { icon: '🐟', name: 'Underwater', desc: 'A mysterious kitchen classic — ask your server!', price: '$13', tags: [] },
     { icon: '🥚', name: 'Egg Friends', desc: 'Eggs prepared your way with friendly sides', price: '$11', tags: [] },
     { icon: '👨‍🍳', name: "Chef's Special", desc: "Ask your server for today's breakfast creation", price: '$17', tags: [{ label: 'Seasonal', className: '' }] },
     { icon: '🍗', name: 'Chicken Wings', desc: 'Crispy chicken wings with dipping sauce', price: '$13', tags: [{ label: 'Popular', className: 'popular' }] },
@@ -78,6 +77,13 @@ const tabs = ['drinks', 'breakie', 'lunch', 'dinner', 'kids']
 
 export default function MenuSection({ onAddToOrder }: { onAddToOrder: (name: string, price: number) => void }) {
   const [activeTab, setActiveTab] = useState('drinks')
+  const [toastMsg, setToastMsg] = useState('')
+
+  const handleAdd = (name: string, price: number) => {
+    onAddToOrder(name, price)
+    setToastMsg(`${name} added`)
+    setTimeout(() => setToastMsg(''), 1200)
+  }
 
   return (
     <section className="menu-section" id="menu">
@@ -99,7 +105,7 @@ export default function MenuSection({ onAddToOrder }: { onAddToOrder: (name: str
             <div
               key={item.name}
               className="menu-card"
-              onClick={() => onAddToOrder(item.name, parseFloat(item.price.replace('$', '')))}
+              onClick={() => handleAdd(item.name, parseFloat(item.price.replace('$', '')))}
             >
               <div className="menu-icon">{item.icon}</div>
               <div className="menu-card-body">
